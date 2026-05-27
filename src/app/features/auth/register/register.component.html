@@ -3,8 +3,8 @@
     <div class="row justify-content-center">
       <div class="col-lg-10 col-xl-9">
         <div class="auth-card d-flex overflow-hidden shadow-lg">
-
-          <!-- Left Panel: Branding -->
+ 
+           <!-- Left Panel: Branding -->
           <div class="auth-panel-left d-none d-lg-flex flex-column justify-content-between p-5">
             <div>
               <a routerLink="/" class="text-decoration-none">
@@ -19,7 +19,8 @@
                 </div>
                 <div>
                   <h6 class="text-white fw-semibold mb-1">1 Year Free Service</h6>
-                  <p class="text-white-50 fs-7 mb-0">Every printer purchase includes 1 year of free maintenance service.</p>
+                  <p class="text-white-50 fs-7 mb-0">Every printer purchase includes 1 year of free maintenance service.
+                  </p>
                 </div>
               </div>
               <div class="d-flex align-items-start gap-3 mb-4">
@@ -28,20 +29,32 @@
                 </div>
                 <div>
                   <h6 class="text-white fw-semibold mb-1">Fast Delivery</h6>
-                  <p class="text-white-50 fs-7 mb-0">Get your printer delivered to your doorstep in 2-3 business days.</p>
+                  <p class="text-white-50 fs-7 mb-0">Get your printer delivered to your doorstep in 2-3 business days.
+                  </p>
                 </div>
               </div>
-              <div class="d-flex align-items-start gap-3">
+              <div class="d-flex align-items-start gap-3 mb-4">
                 <div class="auth-feature-icon">
                   <i class="bi bi-arrow-counterclockwise text-white fs-5"></i>
                 </div>
                 <div>
                   <h6 class="text-white fw-semibold mb-1">Easy Returns</h6>
-                  <p class="text-white-50 fs-7 mb-0">Not happy? Return within 30 days for a full refund. No questions.</p>
+                  <p class="text-white-50 fs-7 mb-0">Not happy? Return within 30 days for a full refund. No questions.
+                  </p>
+                </div>
+              </div>
+              <div class="d-flex align-items-start gap-3">
+                <div class="auth-feature-icon">
+                  <i class="bi bi-wrench text-white fs-5"></i>
+                </div>
+                <div>
+                  <h6 class="text-white fw-semibold mb-1">Certified Experts</h6>
+                  <p class="text-white-50 fs-7 mb-0">All printer setups and repairs are handled by certified background-checked technicians.
+                  </p>
                 </div>
               </div>
             </div>
-            <p class="text-white-50 fs-7 mb-0">&copy; {{ 2025 }} EnergyPrinter. All rights reserved.</p>
+            <p class="text-white-50 fs-7 mb-0">&copy; 2026 EnergyPrinter. All rights reserved.</p>
           </div>
 
           <!-- Right Panel: Form -->
@@ -73,20 +86,15 @@
               <!-- Row: Full Name + Phone -->
               <div class="row g-3 mb-3">
                 <div class="col-sm-7">
-                  <label class="form-label fw-semibold text-dark fs-7" for="regFullName">Full Name <span class="text-danger">*</span></label>
+                  <label class="form-label fw-semibold text-dark fs-7" for="regFullName">Full Name <span
+                      class="text-danger">*</span></label>
                   <div class="input-group">
                     <span class="input-group-text bg-light border-end-0">
                       <i class="bi bi-person text-muted"></i>
                     </span>
-                    <input
-                      id="regFullName"
-                      type="text"
-                      class="form-control border-start-0 bg-light"
-                      placeholder="John Smith"
-                      formControlName="fullName"
-                      [class.is-invalid]="fullName.invalid && fullName.touched"
-                      autocomplete="name"
-                    />
+                    <input id="regFullName" type="text" class="form-control border-start-0 bg-light"
+                      placeholder="John Smith" formControlName="fullName"
+                      [class.is-invalid]="fullName.invalid && fullName.touched" autocomplete="name" />
                   </div>
                   <div class="invalid-feedback d-block" *ngIf="fullName.invalid && fullName.touched">
                     <span *ngIf="fullName.errors?.['required']">Full name is required.</span>
@@ -94,20 +102,15 @@
                   </div>
                 </div>
                 <div class="col-sm-5">
-                  <label class="form-label fw-semibold text-dark fs-7" for="regPhone">Phone <span class="text-muted fw-normal">(optional)</span></label>
+                  <label class="form-label fw-semibold text-dark fs-7" for="regPhone">Phone <span
+                      class="text-muted fw-normal">(optional)</span></label>
                   <div class="input-group">
                     <span class="input-group-text bg-light border-end-0">
                       <i class="bi bi-telephone text-muted"></i>
                     </span>
-                    <input
-                      id="regPhone"
-                      type="tel"
-                      class="form-control border-start-0 bg-light"
-                      placeholder="+1 234 567 890"
-                      formControlName="phone"
-                      [class.is-invalid]="phone.invalid && phone.touched"
-                      autocomplete="tel"
-                    />
+                    <input id="regPhone" type="tel" class="form-control border-start-0 bg-light"
+                      placeholder="+1 234 567 890" formControlName="phone"
+                      [class.is-invalid]="phone.invalid && phone.touched" autocomplete="tel" />
                   </div>
                   <div class="invalid-feedback d-block" *ngIf="phone.invalid && phone.touched">
                     <span *ngIf="phone.errors?.['pattern']">Enter a valid phone number.</span>
@@ -117,20 +120,15 @@
 
               <!-- Email -->
               <div class="mb-3">
-                <label class="form-label fw-semibold text-dark fs-7" for="regEmail">Email Address <span class="text-danger">*</span></label>
+                <label class="form-label fw-semibold text-dark fs-7" for="regEmail">Email Address <span
+                    class="text-danger">*</span></label>
                 <div class="input-group">
                   <span class="input-group-text bg-light border-end-0">
                     <i class="bi bi-envelope text-muted"></i>
                   </span>
-                  <input
-                    id="regEmail"
-                    type="email"
-                    class="form-control border-start-0 bg-light"
-                    placeholder="you@example.com"
-                    formControlName="email"
-                    [class.is-invalid]="email.invalid && email.touched"
-                    autocomplete="email"
-                  />
+                  <input id="regEmail" type="email" class="form-control border-start-0 bg-light"
+                    placeholder="you@example.com" formControlName="email"
+                    [class.is-invalid]="email.invalid && email.touched" autocomplete="email" />
                 </div>
                 <div class="invalid-feedback d-block" *ngIf="email.invalid && email.touched">
                   <span *ngIf="email.errors?.['required']">Email is required.</span>
@@ -140,21 +138,18 @@
 
               <!-- Password -->
               <div class="mb-1">
-                <label class="form-label fw-semibold text-dark fs-7" for="regPassword">Password <span class="text-danger">*</span></label>
+                <label class="form-label fw-semibold text-dark fs-7" for="regPassword">Password <span
+                    class="text-danger">*</span></label>
                 <div class="input-group">
                   <span class="input-group-text bg-light border-end-0">
                     <i class="bi bi-lock text-muted"></i>
                   </span>
-                  <input
-                    id="regPassword"
-                    [type]="showPassword ? 'text' : 'password'"
-                    class="form-control border-start-0 border-end-0 bg-light"
-                    placeholder="Min. 8 characters"
-                    formControlName="password"
-                    [class.is-invalid]="password.invalid && password.touched"
-                    autocomplete="new-password"
-                  />
-                  <button class="input-group-text bg-light border-start-0" type="button" (click)="togglePassword()" tabindex="-1">
+                  <input id="regPassword" [type]="showPassword ? 'text' : 'password'"
+                    class="form-control border-start-0 border-end-0 bg-light" placeholder="Min. 8 characters"
+                    formControlName="password" [class.is-invalid]="password.invalid && password.touched"
+                    autocomplete="new-password" />
+                  <button class="input-group-text bg-light border-start-0" type="button" (click)="togglePassword()"
+                    tabindex="-1">
                     <i class="bi text-muted" [class.bi-eye]="!showPassword" [class.bi-eye-slash]="showPassword"></i>
                   </button>
                 </div>
@@ -169,11 +164,8 @@
                 <div class="d-flex align-items-center gap-2 mt-2">
                   <div class="flex-grow-1">
                     <div class="progress" style="height: 4px;">
-                      <div
-                        class="progress-bar {{getPasswordStrength().class}}"
-                        role="progressbar"
-                        [style.width]="getPasswordStrength().width"
-                      ></div>
+                      <div class="progress-bar {{getPasswordStrength().class}}" role="progressbar"
+                        [style.width]="getPasswordStrength().width"></div>
                     </div>
                   </div>
                   <span class="text-muted fs-7 text-nowrap">{{ getPasswordStrength().label }}</span>
@@ -182,28 +174,29 @@
 
               <!-- Confirm Password -->
               <div class="mb-3">
-                <label class="form-label fw-semibold text-dark fs-7" for="regConfirmPassword">Confirm Password <span class="text-danger">*</span></label>
+                <label class="form-label fw-semibold text-dark fs-7" for="regConfirmPassword">Confirm Password <span
+                    class="text-danger">*</span></label>
                 <div class="input-group">
                   <span class="input-group-text bg-light border-end-0">
                     <i class="bi bi-lock-fill text-muted"></i>
                   </span>
-                  <input
-                    id="regConfirmPassword"
-                    [type]="showConfirmPassword ? 'text' : 'password'"
-                    class="form-control border-start-0 border-end-0 bg-light"
-                    placeholder="Repeat your password"
+                  <input id="regConfirmPassword" [type]="showConfirmPassword ? 'text' : 'password'"
+                    class="form-control border-start-0 border-end-0 bg-light" placeholder="Repeat your password"
                     formControlName="confirmPassword"
                     [class.is-invalid]="(confirmPassword.invalid || registerForm.errors?.['passwordMismatch']) && confirmPassword.touched"
-                    autocomplete="new-password"
-                  />
-                  <button class="input-group-text bg-light border-start-0" type="button" (click)="toggleConfirmPassword()" tabindex="-1">
-                    <i class="bi text-muted" [class.bi-eye]="!showConfirmPassword" [class.bi-eye-slash]="showConfirmPassword"></i>
+                    autocomplete="new-password" />
+                  <button class="input-group-text bg-light border-start-0" type="button"
+                    (click)="toggleConfirmPassword()" tabindex="-1">
+                    <i class="bi text-muted" [class.bi-eye]="!showConfirmPassword"
+                      [class.bi-eye-slash]="showConfirmPassword"></i>
                   </button>
                 </div>
-                <div class="invalid-feedback d-block" *ngIf="confirmPassword.touched && registerForm.errors?.['passwordMismatch']">
+                <div class="invalid-feedback d-block"
+                  *ngIf="confirmPassword.touched && registerForm.errors?.['passwordMismatch']">
                   Passwords do not match.
                 </div>
-                <div class="invalid-feedback d-block" *ngIf="confirmPassword.invalid && confirmPassword.touched && !registerForm.errors?.['passwordMismatch']">
+                <div class="invalid-feedback d-block"
+                  *ngIf="confirmPassword.invalid && confirmPassword.touched && !registerForm.errors?.['passwordMismatch']">
                   <span *ngIf="confirmPassword.errors?.['required']">Please confirm your password.</span>
                 </div>
               </div>
@@ -214,9 +207,11 @@
                   <input class="form-check-input" type="checkbox" id="agreeTerms" formControlName="agreeTerms">
                   <label class="form-check-label text-muted fs-7" for="agreeTerms">
                     I agree to EnergyPrinter's
-                    <a href="javascript:void(0)" class="text-primary-color text-decoration-none fw-medium">Terms of Service</a>
+                    <a href="javascript:void(0)" class="text-primary-color text-decoration-none fw-medium">Terms of
+                      Service</a>
                     and
-                    <a href="javascript:void(0)" class="text-primary-color text-decoration-none fw-medium">Privacy Policy</a>
+                    <a href="javascript:void(0)" class="text-primary-color text-decoration-none fw-medium">Privacy
+                      Policy</a>
                   </label>
                 </div>
                 <div class="invalid-feedback d-block" *ngIf="agreeTerms.invalid && agreeTerms.touched">
@@ -225,14 +220,15 @@
               </div>
 
               <!-- Submit -->
-              <button class="btn btn-primary-custom w-100 py-2 fw-semibold" type="submit" [disabled]="isLoading" id="registerSubmitBtn">
+              <button class="btn btn-primary-custom w-100 py-2 fw-semibold" type="submit" [disabled]="isLoading"
+                id="registerSubmitBtn">
                 <span *ngIf="isLoading" class="spinner-border spinner-border-sm me-2" role="status"></span>
                 {{ isLoading ? 'Creating Account...' : 'Create Account' }}
               </button>
 
             </form>
 
-            <hr class="my-4 border-light">
+            <hr class="my-2 border-light">
 
             <p class="text-center text-muted fs-7 mb-0">
               Already have an account?

@@ -9,8 +9,8 @@
 }
 
 .auth-panel-left {
-  width: 360px;
-  min-width: 360px;
+  width: 380px;
+  min-width: 380px;
   background: linear-gradient(160deg, #1e40af 0%, #2563eb 50%, #3b82f6 100%);
   position: relative;
   overflow: hidden;
@@ -64,12 +64,18 @@
   &:focus {
     background-color: #ffffff !important;
     border-color: #2563eb;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    box-shadow: none;
   }
 }
 
-.input-group:focus-within .input-group-text {
-  border-color: #2563eb;
+.input-group:focus-within {
+  .input-group-text {
+    border-color: #2563eb;
+  }
+
+  .form-control:not(.is-invalid) {
+    border-color: #2563eb;
+  }
 }
 
 .progress {
