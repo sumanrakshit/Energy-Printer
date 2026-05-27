@@ -32,6 +32,17 @@
 
       <!-- Right Menu Actions -->
       <div class="navbar-actions d-flex align-items-center gap-3">
+        <!-- Wishlist Icon -->
+        <a class="position-relative cart-icon-wrapper" href="javascript:void(0)" aria-label="Wishlist">
+          <i class="bi bi-heart fs-4 text-secondary"></i>
+          <span
+            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger border border-light custom-cart-badge"
+            [class.d-none]="wishlistCount === 0"
+          >
+            {{ wishlistCount }}
+          </span>
+        </a>
+
         <!-- Cart Icon -->
         <a class="position-relative cart-icon-wrapper" href="javascript:void(0)" aria-label="Shopping Cart">
           <i class="bi bi-cart3 fs-4 text-secondary"></i>

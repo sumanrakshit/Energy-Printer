@@ -45,6 +45,25 @@ export class CartService {
     this.cartItems$.next(currentItems.filter(item => item.product.id !== productId));
   }
 
+  decrementQuantity(productId: string): void {
+    const currentItems = this.cartItems$.getValue();
+    const existingIndex = currentItems.findIndex(item => item.product.id === productId);
+
+    if (existingIndex > -1) {
+      const updated = [...currentItems];
+      const currentQty = updated[existingIndex].quantity;
+      if (currentQty > 1) {
+        updated[existingIndex] = {
+          ...updated[existingIndex],
+          quantity: currentQty - 1
+        };
+        this.cartItems$.next(updated);
+      } else {
+        this.removeFromCart(productId);
+      }
+    }
+  }
+
   clearCart(): void {
     this.cartItems$.next([]);
   }

@@ -41,16 +41,54 @@
       <span class="text-muted text-decoration-line-through fs-7" *ngIf="product.oldPrice">${{ product.oldPrice }}</span>
     </div>
 
-    <!-- Add to Cart Button -->
-    <button
-      class="btn w-100 mt-auto"
-      [class.btn-primary-custom]="!addedToCart"
-      [class.btn-success]="addedToCart"
-      type="button"
-      (click)="addToCart()"
-    >
-      <i class="bi" [class.bi-cart-plus]="!addedToCart" [class.bi-check-lg]="addedToCart"></i>
-      {{ addedToCart ? 'Added!' : 'Add to Cart' }}
-    </button>
+    <!-- Actions Section: Add to Cart / Quantity Selector + Wishlist Toggle -->
+    <div class="d-flex align-items-center gap-2 mt-auto">
+      <!-- Cart Action -->
+      <div class="flex-grow-1">
+        <div *ngIf="quantity > 0; else addToCartBtn">
+          <div class="quantity-selector d-flex align-items-center justify-content-between w-100 border rounded-pill p-1 bg-white shadow-sm">
+            <button
+              class="btn btn-sm btn-quantity-minus d-flex align-items-center justify-content-center rounded-circle border-0"
+              type="button"
+              (click)="decrementQuantity()"
+              aria-label="Decrease quantity"
+            >
+              <i class="bi bi-dash-lg"></i>
+            </button>
+            <span class="fw-bold fs-6 text-dark px-2 quantity-value">{{ quantity }}</span>
+            <button
+              class="btn btn-sm btn-quantity-plus d-flex align-items-center justify-content-center rounded-circle border-0"
+              type="button"
+              (click)="incrementQuantity()"
+              aria-label="Increase quantity"
+            >
+              <i class="bi bi-plus-lg"></i>
+            </button>
+          </div>
+        </div>
+        <ng-template #addToCartBtn>
+          <button
+            class="btn btn-primary-custom w-100 d-flex align-items-center justify-content-center"
+            type="button"
+            (click)="incrementQuantity()"
+          >
+            <i class="bi bi-cart-plus me-2"></i>
+            Add to Cart
+          </button>
+        </ng-template>
+      </div>
+
+      <!-- Wishlist Heart Button -->
+      <button
+        class="btn btn-outline-secondary-custom btn-wishlist d-flex align-items-center justify-content-center rounded-3 p-0"
+        type="button"
+        [class.active]="isInWishlist"
+        (click)="toggleWishlist()"
+        aria-label="Toggle wishlist"
+        style="width: 44px; height: 44px;"
+      >
+        <i class="bi" [class.bi-heart-fill]="isInWishlist" [class.bi-heart]="!isInWishlist"></i>
+      </button>
+    </div>
   </div>
 </div>

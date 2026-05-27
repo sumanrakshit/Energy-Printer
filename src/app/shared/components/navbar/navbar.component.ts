@@ -3,6 +3,7 @@ import { RouterLink, RouterLinkActive, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { CartService } from '../../../core/services/cart.service';
+import { WishlistService } from '../../../core/services/wishlist.service';
 
 @Component({
   selector: 'app-navbar',
@@ -14,11 +15,14 @@ import { CartService } from '../../../core/services/cart.service';
 export class NavbarComponent implements OnInit, OnDestroy {
   isMenuOpen = false;
   cartCount = 0;
+  wishlistCount = 0;
 
   private cartSub!: Subscription;
+  private wishlistSub!: Subscription;
 
   constructor(
     private cartService: CartService,
+    private wishlistService: WishlistService,
     private router: Router
   ) {}
 
@@ -26,10 +30,14 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.cartSub = this.cartService.getCartCount().subscribe(count => {
       this.cartCount = count;
     });
+    this.wishlistSub = this.wishlistService.getWishlistCount().subscribe(count => {
+      this.wishlistCount = count;
+    });
   }
 
   ngOnDestroy(): void {
     this.cartSub?.unsubscribe();
+    this.wishlistSub?.unsubscribe();
   }
 
   toggleMenu() {
