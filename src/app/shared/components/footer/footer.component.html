@@ -1,0 +1,89 @@
+<footer class="footer bg-dark-navy text-light py-5" id="footer">
+  <div class="container">
+    <div class="row g-4 justify-content-between">
+      <!-- Column 1: Brand & About -->
+      <div class="col-lg-4 col-md-6">
+        <h3 class="logo-font text-primary-color mb-3 fs-3">EnergyPrinter</h3>
+        <p class="text-light-muted mb-4 fs-6 lh-base">
+          Your trusted partner for all printer needs. We provide high-quality printer sales, authentic parts, and
+          certified on-site and in-store repair services.
+        </p>
+        <div class="social-icons d-flex gap-3">
+          <a class="social-icon" href="javascript:void(0)" aria-label="Facebook">
+            <i class="bi bi-facebook fs-5"></i>
+          </a>
+          <a class="social-icon" href="javascript:void(0)" aria-label="Twitter">
+            <i class="bi bi-twitter-x fs-5"></i>
+          </a>
+          <a class="social-icon" href="javascript:void(0)" aria-label="Instagram">
+            <i class="bi bi-instagram fs-5"></i>
+          </a>
+          <a class="social-icon" href="javascript:void(0)" aria-label="LinkedIn">
+            <i class="bi bi-linkedin fs-5"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Column 2: Quick Links -->
+      <div class="col-lg-3 col-md-6">
+        <h5 class="fw-bold mb-3 text-white">Quick Links</h5>
+        <ul class="list-unstyled footer-links">
+          <li class="mb-2">
+            <a class="text-light-muted text-decoration-none" routerLink="/all-printers">All Printers</a>
+          </li>
+          <li class="mb-2">
+            <a class="text-light-muted text-decoration-none" routerLink="/repair-services">Repair Services</a>
+          </li>
+          <li class="mb-2">
+            <a class="text-light-muted text-decoration-none cursor-pointer"
+              (click)="scrollToSection('why-choose-section')">About Us</a>
+          </li>
+          <li class="mb-2">
+            <a class="text-light-muted text-decoration-none cursor-pointer"
+              (click)="scrollToSection('footer')">Contact</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Contact Info -->
+      <div class="col-lg-4 col-md-12">
+        <h5 class="fw-bold mb-3 text-white">Contact Info</h5>
+        <ul class="list-unstyled contact-info-list text-light-muted">
+          <li class="d-flex align-items-start mb-3">
+            <i class="bi bi-telephone text-primary-color me-3 fs-5 mt-0.5"></i>
+            <div>
+              <span class="d-block text-white fw-medium">Phone</span>
+              <span>+1 (800) 555-0199</span>
+            </div>
+          </li>
+          <li class="d-flex align-items-start mb-3">
+            <i class="bi bi-envelope text-primary-color me-3 fs-5 mt-0.5"></i>
+            <div>
+              <span class="d-block text-white fw-medium">Email</span>
+              <span>support&#64;EnergyPrinter.com</span>
+            </div>
+          </li>
+          <li class="d-flex align-items-start">
+            <i class="bi bi-geo-alt text-primary-color me-3 fs-5 mt-0.5"></i>
+            <div>
+              <span class="d-block text-white fw-medium">Address</span>
+              <span>123 Tech Center Blvd, Suite 400, Austin, TX 78701</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Divider and copyright -->
+    <hr class="border-secondary border-opacity-25 my-4">
+
+    <div class="row align-items-center justify-content-between">
+      <div class="col-md-6 text-center text-md-start text-light-muted fs-7">
+        &copy; {{ currentYear }} EnergyPrinter. All rights reserved.
+      </div>
+      <div class="col-md-6 text-center text-md-end text-light-muted fs-7 mt-2 mt-md-0">
+        Designed for premium pixel-perfect display.
+      </div>
+    </div>
+  </div>
+</footer>

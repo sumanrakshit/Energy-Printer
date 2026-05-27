@@ -1,0 +1,18 @@
+<section class="category-section py-5 bg-light-section">
+  <div class="container py-4">
+    <!-- Header -->
+    <div class="row justify-content-center mb-5 text-center">
+      <div class="col-lg-8">
+        <h2 class="fw-bold text-dark fs-2 mb-2">Browse by Category</h2>
+        <p class="text-muted fs-6">Find the perfect printer for your needs</p>
+      </div>
+    </div>
+
+    <!-- Cards Row -->
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-6 g-3 justify-content-center">
+      <div class="col" *ngFor="let cat of categories" (click)="selectCategory(cat.title)">
+        <app-category-card [title]="cat.title" [iconClass]="cat.iconClass"></app-category-card>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,36 @@
+<section class="repair-banner bg-primary text-white py-5 text-center position-relative">
+  <div class="container py-4">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-xl-7">
+        <!-- Heading -->
+        <h2 class="fw-bold mb-3 text-white fs-2">Need Professional Repair Service?</h2>
+        
+        <!-- Subtitle -->
+        <p class="text-light-muted-banner mb-4 fs-6">
+          Our certified technicians are ready to help with any printer issue. Book a service appointment and get your printer running like new.
+        </p>
+
+        <!-- Input field + Button -->
+        <form (ngSubmit)="onSubmit()" #quoteForm="ngForm" class="d-flex flex-column flex-sm-row justify-content-center align-items-center gap-2 mt-4 mx-auto w-100 max-w-lg">
+          <input
+            type="email"
+            class="form-control form-control-lg border-0 shadow-sm px-3"
+            placeholder="Enter your email address"
+            name="email"
+            [(ngModel)]="email"
+            required
+            aria-label="Email Address"
+          />
+          <button type="submit" class="btn btn-outline-white-custom btn-lg px-4 py-2 mt-2 mt-sm-0 w-100 w-sm-auto">
+            Get Quote
+          </button>
+        </form>
+
+        <!-- Success Toast -->
+        <div *ngIf="successMessage" class="alert alert-success mt-4 bg-white text-success border-0 shadow-sm animate-fade-in" role="alert">
+          <i class="bi bi-check-circle-fill me-2"></i> {{ successMessage }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

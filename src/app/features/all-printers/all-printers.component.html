@@ -1,0 +1,133 @@
+<!-- <section class="all-printers-header bg-light border-bottom py-3">
+  <div class="container">
+    <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+      <div>
+        <h1 class="fw-bold text-dark fs-4 mb-0">All Printers</h1>
+        <p class="text-muted fs-7 mb-0 mt-1">
+          Browse our complete collection — latest models, popular choices &amp; refurbished options.
+        </p>
+      </div>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0 fs-7">
+          <li class="breadcrumb-item"><a routerLink="/" class="text-primary-color text-decoration-none">Home</a></li>
+          <li class="breadcrumb-item active text-muted" aria-current="page">All Printers</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+</section> -->
+<section class="all-printers-header bg-light border-bottom py-1">
+  <div class="container text-center py-1">
+
+    <h1 class="fw-bold text-dark display-5">
+      All Printers
+    </h1>
+
+    <p class="text-muted fs-6 mx-auto w-lg-80 mt-2">
+      Browse our complete collection — latest models, popular choices & refurbished options.
+    </p>
+
+  </div>
+</section>
+
+<section class="all-printers-content py-5 bg-white">
+  <div class="container">
+    <div class="row g-4">
+      <!-- LEFT: Sidebar Filter Card -->
+      <div class="col-lg-3">
+        <div class="card card-custom p-4 border-light sticky-sidebar shadow-sm">
+          <h5 class="fw-bold text-dark mb-4 d-flex align-items-center gap-2">
+            <i class="bi bi-funnel text-primary"></i> Filters
+          </h5>
+
+          <!-- Search -->
+          <div class="mb-3">
+            <label class="form-label text-secondary fw-semibold fs-7 mb-2">Search Printers</label>
+            <div class="input-group">
+              <span class="input-group-text bg-white border-end-0">
+                <i class="bi bi-search text-muted"></i>
+              </span>
+              <input
+                type="text"
+                class="form-control border-start-0"
+                placeholder="Search..."
+                [(ngModel)]="searchText"
+                (ngModelChange)="applyFilters()"
+              />
+            </div>
+          </div>
+
+          <!-- Category Dropdown -->
+          <div class="mb-3">
+            <label class="form-label text-secondary fw-semibold fs-7 mb-2">Category</label>
+            <select class="form-select" [(ngModel)]="selectedCategory" (change)="applyFilters()">
+              <option value="">All Categories</option>
+              <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+            </select>
+          </div>
+
+          <!-- Brand Dropdown -->
+          <div class="mb-3">
+            <label class="form-label text-secondary fw-semibold fs-7 mb-2">Brand</label>
+            <select class="form-select" [(ngModel)]="selectedBrand" (change)="applyFilters()">
+              <option value="">All Brands</option>
+              <option *ngFor="let brand of brands" [value]="brand">{{ brand }}</option>
+            </select>
+          </div>
+
+          <!-- Price Range Dropdown -->
+          <div class="mb-4">
+            <label class="form-label text-secondary fw-semibold fs-7 mb-2">Price Range</label>
+            <select class="form-select" [(ngModel)]="selectedPriceRange" (change)="applyFilters()">
+              <option value="">All Prices</option>
+              <option *ngFor="let pr of priceRanges" [value]="pr.value">{{ pr.label }}</option>
+            </select>
+          </div>
+
+          <!-- Clear Button -->
+          <button class="btn btn-outline-danger w-100 fw-semibold fs-7 py-2" (click)="clearFilters()">
+            Clear All Filters
+          </button>
+        </div>
+      </div>
+
+      <!-- RIGHT: Product Grid -->
+      <div class="col-lg-9">
+        <!-- Top Toolbar -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <span class="text-secondary fs-7">
+            Showing <strong class="text-dark">{{ filteredPrinters.length }}</strong> products
+          </span>
+          <div class="d-flex align-items-center gap-2">
+            <span class="text-secondary fs-7 text-nowrap d-none d-sm-block">Sort by:</span>
+            <select class="form-select form-select-sm sort-dropdown border-light" [(ngModel)]="selectedSort" (change)="applyFilters()">
+              <option value="featured">Featured</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="rating">Rating: High to Low</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Grid -->
+        <div class="row g-4" *ngIf="filteredPrinters.length > 0; else noProducts">
+          <div class="col-md-6 col-xl-4 d-flex" *ngFor="let printer of filteredPrinters">
+            <app-product-card [product]="printer" class="w-100"></app-product-card>
+          </div>
+        </div>
+
+        <!-- No products placeholder -->
+        <ng-template #noProducts>
+          <div class="text-center py-5 card border-dashed border-light-subtle rounded-3 w-100">
+            <i class="bi bi-inboxes text-muted display-4 mb-3"></i>
+            <h5 class="fw-bold text-dark mb-1">No Printers Found</h5>
+            <p class="text-muted fs-7 mb-3">Try adjusting your filters or searching for something else.</p>
+            <button class="btn btn-primary-custom btn-sm px-4 mx-auto" (click)="clearFilters()">
+              Reset Filters
+            </button>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</section>

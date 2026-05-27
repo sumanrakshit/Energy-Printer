@@ -1,0 +1,18 @@
+<section class="popular-models-section py-5 bg-white">
+  <div class="container py-4">
+    <!-- Header -->
+    <app-section-header
+      title="Popular Models"
+      subtitle="Customer favorites and best sellers"
+      buttonText="View All Popular"
+      buttonLink="/all-printers"
+    ></app-section-header>
+
+    <!-- Product Grid -->
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6" *ngFor="let printer of popularPrinters">
+        <app-product-card [product]="printer"></app-product-card>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,44 @@
+.product-card-inner {
+  display: flex;
+  flex-direction: column;
+}
+
+.bg-light-gray-custom {
+  background-color: #fafafa;
+}
+
+.card-img-container {
+  height: 200px;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+  position: relative;
+}
+
+.product-image {
+  max-height: 160px;
+  width: 100%;
+  object-fit: contain; // As per instructions: "object-fit: contain for product images"
+  transition: transform 0.3s ease;
+}
+
+.card-custom:hover {
+  .product-image {
+    transform: scale(1.05);
+  }
+}
+
+.fs-7 {
+  font-size: 0.85rem;
+}
+
+.top-3 {
+  top: 0.75rem !important;
+}
+
+.start-3 {
+  left: 0.75rem !important;
+}
+
+.end-3 {
+  right: 0.75rem !important;
+}

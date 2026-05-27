@@ -1,0 +1,32 @@
+.service-card-inner {
+  cursor: pointer;
+  border: 1.5px solid rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    border-color: rgba(37, 99, 235, 0.3);
+  }
+
+  &.selected {
+    border-color: #2563eb;
+    background-color: rgba(37, 99, 235, 0.02);
+    box-shadow: 0 8px 30px rgba(37, 99, 235, 0.06);
+  }
+}
+
+.fs-7 {
+  font-size: 0.85rem;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.selection-indicator {
+  transition: transform 0.2s ease;
+}
+
+.service-card-inner:hover .selection-indicator {
+  transform: scale(1.1);
+}

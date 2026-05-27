@@ -1,0 +1,42 @@
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+
+.all-printers-header {
+  background-color: #f8fafc !important;
+}
+
+.sticky-sidebar {
+  position: sticky;
+  top: 95px; // Pushes below the sticky navbar height (75px) + small gap (20px)
+  z-index: 10;
+}
+
+.form-select, .form-control {
+  border-radius: 8px;
+  font-size: 0.9rem;
+  border-color: rgba(0,0,0,0.08);
+
+  &:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37,99,235,0.15);
+  }
+}
+
+.sort-dropdown {
+  min-width: 160px;
+}
+
+.fs-7 {
+  font-size: 0.85rem;
+}
+
+.w-lg-50 {
+  @include media-breakpoint-up(lg) {
+    width: 50% !important;
+  }
+}
+
+.border-dashed {
+  border-style: dashed !important;
+}

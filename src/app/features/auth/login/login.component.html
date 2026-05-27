@@ -1,0 +1,158 @@
+<div class="auth-page d-flex align-items-center justify-content-center min-vh-100">
+  <!-- Background split -->
+  <div class="auth-bg-left d-none d-lg-flex"></div>
+
+  <div class="container position-relative z-1">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 col-xl-9">
+        <div class="auth-card d-flex overflow-hidden shadow-lg">
+
+          <!-- Left Panel: Branding -->
+          <div class="auth-panel-left d-none d-lg-flex flex-column justify-content-between p-5">
+            <div>
+              <a routerLink="/" class="text-decoration-none">
+                <span class="logo-font fs-2 text-white">EnergyPrinter</span>
+              </a>
+              <p class="text-white-50 mt-2 fs-6">Your complete printer solution hub.</p>
+            </div>
+            <div>
+              <div class="d-flex align-items-start gap-3 mb-4">
+                <div class="auth-feature-icon">
+                  <i class="bi bi-shield-check-fill text-white fs-5"></i>
+                </div>
+                <div>
+                  <h6 class="text-white fw-semibold mb-1">Secure &amp; Trusted</h6>
+                  <p class="text-white-50 fs-7 mb-0">Your data is safe with us. We never share your information.</p>
+                </div>
+              </div>
+              <div class="d-flex align-items-start gap-3 mb-4">
+                <div class="auth-feature-icon">
+                  <i class="bi bi-cart3 text-white fs-5"></i>
+                </div>
+                <div>
+                  <h6 class="text-white fw-semibold mb-1">Track Your Orders</h6>
+                  <p class="text-white-50 fs-7 mb-0">Manage purchases, service bookings and more from your dashboard.</p>
+                </div>
+              </div>
+              <div class="d-flex align-items-start gap-3">
+                <div class="auth-feature-icon">
+                  <i class="bi bi-headset text-white fs-5"></i>
+                </div>
+                <div>
+                  <h6 class="text-white fw-semibold mb-1">24/7 Support</h6>
+                  <p class="text-white-50 fs-7 mb-0">Our expert team is always here to help with any printer needs.</p>
+                </div>
+              </div>
+            </div>
+            <p class="text-white-50 fs-7 mb-0">&copy; {{ 2025 }} EnergyPrinter. All rights reserved.</p>
+          </div>
+
+          <!-- Right Panel: Form -->
+          <div class="auth-panel-right flex-grow-1 p-4 p-md-5">
+            <!-- Mobile Logo -->
+            <div class="d-lg-none text-center mb-4">
+              <a routerLink="/" class="text-decoration-none">
+                <span class="logo-font fs-3">EnergyPrinter</span>
+              </a>
+            </div>
+
+            <h2 class="fw-bold text-dark mb-1">Welcome back</h2>
+            <p class="text-muted fs-6 mb-4">Sign in to your EnergyPrinter account</p>
+
+            <!-- Success Alert -->
+            <div class="alert alert-success d-flex align-items-center gap-2 py-2" *ngIf="successMessage">
+              <i class="bi bi-check-circle-fill"></i>
+              {{ successMessage }}
+            </div>
+
+            <!-- Error Alert -->
+            <div class="alert alert-danger d-flex align-items-center gap-2 py-2" *ngIf="errorMessage">
+              <i class="bi bi-exclamation-circle-fill"></i>
+              {{ errorMessage }}
+            </div>
+
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+
+              <!-- Email -->
+              <div class="mb-3">
+                <label class="form-label fw-semibold text-dark fs-7" for="loginEmail">Email Address</label>
+                <div class="input-group">
+                  <span class="input-group-text bg-light border-end-0">
+                    <i class="bi bi-envelope text-muted"></i>
+                  </span>
+                  <input
+                    id="loginEmail"
+                    type="email"
+                    class="form-control border-start-0 bg-light"
+                    placeholder="you@example.com"
+                    formControlName="email"
+                    [class.is-invalid]="email.invalid && email.touched"
+                    autocomplete="email"
+                  />
+                </div>
+                <div class="invalid-feedback d-block" *ngIf="email.invalid && email.touched">
+                  <span *ngIf="email.errors?.['required']">Email is required.</span>
+                  <span *ngIf="email.errors?.['email']">Please enter a valid email address.</span>
+                </div>
+              </div>
+
+              <!-- Password -->
+              <div class="mb-3">
+                <div class="d-flex justify-content-between align-items-center mb-1">
+                  <label class="form-label fw-semibold text-dark fs-7 mb-0" for="loginPassword">Password</label>
+                  <a href="javascript:void(0)" class="text-primary-color text-decoration-none fs-7 fw-medium">Forgot password?</a>
+                </div>
+                <div class="input-group">
+                  <span class="input-group-text bg-light border-end-0">
+                    <i class="bi bi-lock text-muted"></i>
+                  </span>
+                  <input
+                    id="loginPassword"
+                    [type]="showPassword ? 'text' : 'password'"
+                    class="form-control border-start-0 border-end-0 bg-light"
+                    placeholder="Enter your password"
+                    formControlName="password"
+                    [class.is-invalid]="password.invalid && password.touched"
+                    autocomplete="current-password"
+                  />
+                  <button class="input-group-text bg-light border-start-0" type="button" (click)="togglePassword()" tabindex="-1">
+                    <i class="bi text-muted" [class.bi-eye]="!showPassword" [class.bi-eye-slash]="showPassword"></i>
+                  </button>
+                </div>
+                <div class="invalid-feedback d-block" *ngIf="password.invalid && password.touched">
+                  <span *ngIf="password.errors?.['required']">Password is required.</span>
+                  <span *ngIf="password.errors?.['minlength']">Password must be at least 6 characters.</span>
+                </div>
+              </div>
+
+              <!-- Remember Me -->
+              <div class="mb-4">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="rememberMe" formControlName="rememberMe">
+                  <label class="form-check-label text-muted fs-7" for="rememberMe">
+                    Keep me signed in for 30 days
+                  </label>
+                </div>
+              </div>
+
+              <!-- Submit -->
+              <button class="btn btn-primary-custom w-100 py-2 fw-semibold" type="submit" [disabled]="isLoading" id="loginSubmitBtn">
+                <span *ngIf="isLoading" class="spinner-border spinner-border-sm me-2" role="status"></span>
+                {{ isLoading ? 'Signing in...' : 'Sign In' }}
+              </button>
+
+            </form>
+
+            <hr class="my-4 border-light">
+
+            <p class="text-center text-muted fs-7 mb-0">
+              Don't have an account?
+              <a routerLink="/auth/register" class="text-primary-color fw-semibold text-decoration-none">Create one for free</a>
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

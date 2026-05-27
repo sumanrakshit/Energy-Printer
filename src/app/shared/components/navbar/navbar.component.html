@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-xl navbar-light bg-white border-bottom-subtle sticky-top">
+  <div class="container navbar-container">
+    <!-- Brand Logo -->
+    <a class="navbar-brand d-flex align-items-center" (click)="navigateTo('/')" style="cursor:pointer;">
+      <span class="logo-font fs-3">EnergyPrinter</span>
+    </a>
+
+    <!-- Hamburger Toggle for Mobile -->
+    <button class="navbar-toggler" type="button" (click)="toggleMenu()" aria-controls="navbarNav" [attr.aria-expanded]="isMenuOpen" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navigation Links -->
+    <div class="collapse navbar-collapse" [class.show]="isMenuOpen" id="navbarNav">
+      <ul class="navbar-nav mx-auto align-items-center">
+        <li class="nav-item px-3">
+          <a class="nav-link text-dark fw-medium" routerLink="/" routerLinkActive="text-primary-color" [routerLinkActiveOptions]="{exact: true}" (click)="navigateTo('/')">Home</a>
+        </li>
+        <li class="nav-item px-3">
+          <a class="nav-link text-dark fw-medium" routerLinkActive="text-primary-color" (click)="navigateTo('/all-printers')" style="cursor:pointer;">All Printers</a>
+        </li>
+        <li class="nav-item px-3">
+          <a class="nav-link text-dark fw-medium" routerLinkActive="text-primary-color" (click)="navigateTo('/repair-services')" style="cursor:pointer;">Repair Services</a>
+        </li>
+        <li class="nav-item px-3">
+          <a class="nav-link text-dark fw-medium cursor-pointer" (click)="scrollToSection('why-choose-section')">About</a>
+        </li>
+        <li class="nav-item px-3">
+          <a class="nav-link text-dark fw-medium cursor-pointer" (click)="scrollToSection('footer')">Contact</a>
+        </li>
+      </ul>
+
+      <!-- Right Menu Actions -->
+      <div class="navbar-actions d-flex align-items-center gap-3">
+        <!-- Cart Icon -->
+        <a class="position-relative cart-icon-wrapper" href="javascript:void(0)" aria-label="Shopping Cart">
+          <i class="bi bi-cart3 fs-4 text-secondary"></i>
+          <span
+            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger border border-light custom-cart-badge"
+            [class.d-none]="cartCount === 0"
+          >
+            {{ cartCount }}
+          </span>
+        </a>
+
+        <!-- Sign In Button -->
+        <button class="btn btn-outline-primary-custom px-4" type="button" (click)="navigateTo('/auth/login')">Sign In</button>
+
+        <!-- Sign Up Button -->
+        <button class="btn btn-primary-custom px-4" type="button" (click)="navigateTo('/auth/register')">Sign Up</button>
+      </div>
+    </div>
+  </div>
+</nav>

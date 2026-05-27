@@ -1,0 +1,59 @@
+.bg-dark-navy {
+  background-color: #0f172a !important; // Sleek dark navy shade matching professional corporate look
+}
+
+.text-light-muted {
+  color: #94a3b8 !important;
+}
+
+.fs-7 {
+  font-size: 0.85rem !important;
+}
+
+.footer {
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #94a3b8;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: #2563eb;
+    color: #ffffff;
+    transform: translateY(-3px);
+  }
+}
+
+.footer-links {
+  a {
+    transition: all 0.2s ease;
+    display: inline-block;
+
+    &:hover {
+      color: #2563eb !important;
+      transform: translateX(3px);
+    }
+  }
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.contact-info-list {
+  i {
+    transition: transform 0.2s ease;
+  }
+
+  li:hover i {
+    transform: scale(1.1);
+  }
+}

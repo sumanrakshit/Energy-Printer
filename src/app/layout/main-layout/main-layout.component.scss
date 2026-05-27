@@ -1,0 +1,3 @@
+.main-content {
+  min-height: calc(100vh - 75px - 350px); // Subtracts Navbar height and approx Footer height to prevent layout jumps
+}

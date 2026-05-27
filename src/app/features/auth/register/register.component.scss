@@ -1,0 +1,78 @@
+.auth-page {
+  background: linear-gradient(135deg, #f0f4ff 0%, #e8f0fe 50%, #f5f3ff 100%);
+}
+
+.auth-card {
+  border-radius: 20px;
+  overflow: hidden;
+  border: none;
+}
+
+.auth-panel-left {
+  width: 360px;
+  min-width: 360px;
+  background: linear-gradient(160deg, #1e40af 0%, #2563eb 50%, #3b82f6 100%);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -60px;
+    left: -60px;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+  }
+}
+
+.auth-feature-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.auth-panel-right {
+  background: #ffffff;
+}
+
+.input-group-text {
+  border-color: #dee2e6;
+}
+
+.form-control.bg-light {
+  background-color: #f8fafc !important;
+  border-color: #dee2e6;
+
+  &:focus {
+    background-color: #ffffff !important;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  }
+}
+
+.input-group:focus-within .input-group-text {
+  border-color: #2563eb;
+}
+
+.progress {
+  border-radius: 4px;
+  background-color: #e9ecef;
+}

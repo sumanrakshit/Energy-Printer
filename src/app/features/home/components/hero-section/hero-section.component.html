@@ -1,0 +1,26 @@
+<section class="hero-container position-relative overflow-hidden d-flex align-items-center" [style.background-image]="'url(' + heroImageUrl + ')'">
+  <!-- Dark Transparent Overlay -->
+  <div class="overlay position-absolute w-100 h-100 top-0 start-0"></div>
+
+  <!-- Content -->
+  <div class="container position-relative z-1 hero-content text-start text-white">
+    <div class="row">
+      <div class="col-xl-8 col-lg-10">
+        <h1 class="display-3 fw-bold mb-3 lh-sm text-white">
+          Your Complete Printer <br class="d-none d-md-block">Solution Hub
+        </h1>
+        <p class="lead text-light-muted-hero mb-4 fs-5 w-lg-75">
+          Discover the latest printer models, reliable refurbished options, and professional repair services. All backed by our 1-year free service guarantee.
+        </p>
+        <div class="d-flex flex-wrap gap-3">
+          <a routerLink="/all-printers" class="btn btn-primary-custom btn-lg px-4 py-3 d-inline-flex align-items-center gap-2">
+            Shop Printers <i class="bi bi-arrow-right"></i>
+          </a>
+          <a routerLink="/repair-services" class="btn btn-outline-white-custom btn-lg px-4 py-3 d-inline-flex align-items-center gap-2">
+            Book Repair Service <i class="bi bi-wrench"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

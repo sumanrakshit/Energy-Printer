@@ -1,0 +1,49 @@
+.why-choose-section {
+  background-color: #ffffff;
+}
+
+.icon-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+
+  &.icon-blue {
+    background-color: rgba(37, 99, 235, 0.08);
+    color: #2563eb;
+  }
+
+  &.icon-green {
+    background-color: rgba(16, 185, 129, 0.08);
+    color: #10b981;
+  }
+
+  &.icon-purple {
+    background-color: rgba(139, 92, 246, 0.08);
+    color: #8b5cf6;
+  }
+}
+
+.card-custom {
+  background-color: #ffffff;
+  border-radius: 14px !important;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.03) !important;
+  border: 1px solid rgba(0, 0, 0, 0.04) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06) !important;
+
+    .icon-circle {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.fs-7 {
+  font-size: 0.9rem;
+}

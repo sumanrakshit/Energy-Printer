@@ -1,0 +1,22 @@
+<div class="card card-custom service-card-inner h-100 p-4" [class.selected]="isSelected" (click)="onSelect()">
+  <div class="d-flex justify-content-between align-items-start mb-3">
+    <div>
+      <h5 class="fw-bold mb-1 text-dark">{{ service.name }}</h5>
+      <span class="badge bg-light text-dark border d-inline-flex align-items-center gap-1">
+        <i class="bi bi-clock"></i> {{ service.duration }}
+      </span>
+    </div>
+    <div class="text-end">
+      <span class="fs-4 fw-bold text-primary">${{ service.price }}</span>
+    </div>
+  </div>
+  <p class="text-muted fs-7 flex-grow-1 mb-3">{{ service.description }}</p>
+  <div class="d-flex align-items-center justify-content-between mt-auto">
+    <span class="text-primary fw-semibold fs-7 d-flex align-items-center gap-1 cursor-pointer">
+      Learn More <i class="bi bi-arrow-right"></i>
+    </span>
+    <div class="selection-indicator">
+      <i class="bi" [ngClass]="isSelected ? 'bi-check-circle-fill text-primary fs-5' : 'bi-circle text-muted fs-5'"></i>
+    </div>
+  </div>
+</div>
