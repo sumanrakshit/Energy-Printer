@@ -1,15 +1,5 @@
-<div class="card card-custom h-100 product-card-inner">
-  <div class="position-relative card-img-container d-flex align-items-center justify-content-center p-3 bg-light-gray-custom">
-    <!-- Badges -->
-    <div class="position-absolute top-3 start-3">
-      <span *ngIf="product.badgeType === 'new'" class="badge-new">New</span>
-      <span *ngIf="product.badgeType === 'popular'" class="badge-popular">Popular</span>
-    </div>
-    
-    <div class="position-absolute top-3 end-3" *ngIf="product.freeService">
-      <span class="badge-service-tag">1 Year Free Service</span>
-    </div>
-
+<div class="card card-custom h-100 product-card-inner cursor-pointer" (click)="openPdf()">
+  <div class="card-img-container d-flex align-items-center justify-content-center p-3 bg-light-gray-custom">
     <!-- Product Image -->
     <img [src]="product.image" [alt]="product.name" class="product-image">
   </div>
@@ -19,76 +9,6 @@
     <h5 class="card-title fw-bold text-dark mb-2">{{ product.name }}</h5>
     
     <!-- Description -->
-    <p class="card-text text-muted fs-7 mb-3 flex-grow-1">{{ product.description }}</p>
-
-    <!-- Ratings -->
-    <div class="d-flex align-items-center mb-3">
-      <div class="star-rating me-2">
-        <span *ngFor="let star of getStarsArray(product.rating)">
-          <i class="bi" [ngClass]="{
-            'bi-star-fill': star === 1,
-            'bi-star-half': star === 0.5,
-            'bi-star': star === 0
-          }"></i>
-        </span>
-      </div>
-      <span class="text-secondary fs-7">({{ product.reviewsCount }})</span>
-    </div>
-
-    <!-- Price Section -->
-    <div class="d-flex align-items-baseline gap-2 mb-3">
-      <span class="fs-4 fw-bold text-dark">${{ product.price }}</span>
-      <span class="text-muted text-decoration-line-through fs-7" *ngIf="product.oldPrice">${{ product.oldPrice }}</span>
-    </div>
-
-    <!-- Actions Section: Add to Cart / Quantity Selector + Wishlist Toggle -->
-    <div class="d-flex align-items-center gap-2 mt-auto">
-      <!-- Cart Action -->
-      <div class="flex-grow-1">
-        <div *ngIf="quantity > 0; else addToCartBtn">
-          <div class="quantity-selector d-flex align-items-center justify-content-between w-100 border rounded-pill p-1 bg-white shadow-sm">
-            <button
-              class="btn btn-sm btn-quantity-minus d-flex align-items-center justify-content-center rounded-circle border-0"
-              type="button"
-              (click)="decrementQuantity()"
-              aria-label="Decrease quantity"
-            >
-              <i class="bi bi-dash-lg"></i>
-            </button>
-            <span class="fw-bold fs-6 text-dark px-2 quantity-value">{{ quantity }}</span>
-            <button
-              class="btn btn-sm btn-quantity-plus d-flex align-items-center justify-content-center rounded-circle border-0"
-              type="button"
-              (click)="incrementQuantity()"
-              aria-label="Increase quantity"
-            >
-              <i class="bi bi-plus-lg"></i>
-            </button>
-          </div>
-        </div>
-        <ng-template #addToCartBtn>
-          <button
-            class="btn btn-primary-custom w-100 d-flex align-items-center justify-content-center"
-            type="button"
-            (click)="incrementQuantity()"
-          >
-            <i class="bi bi-cart-plus me-2"></i>
-            Add to Cart
-          </button>
-        </ng-template>
-      </div>
-
-      <!-- Wishlist Heart Button -->
-      <button
-        class="btn btn-outline-secondary-custom btn-wishlist d-flex align-items-center justify-content-center rounded-3 p-0"
-        type="button"
-        [class.active]="isInWishlist"
-        (click)="toggleWishlist()"
-        aria-label="Toggle wishlist"
-        style="width: 44px; height: 44px;"
-      >
-        <i class="bi" [class.bi-heart-fill]="isInWishlist" [class.bi-heart]="!isInWishlist"></i>
-      </button>
-    </div>
+    <p class="card-text text-muted fs-7 mb-0 flex-grow-1">{{ product.description }}</p>
   </div>
 </div>

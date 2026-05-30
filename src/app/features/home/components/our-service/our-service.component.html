@@ -1,0 +1,150 @@
+<section id="our-service-section" class="category-section py-5">
+  <div class="container py-4">
+    <!-- Header -->
+    <div class="row justify-content-center mb-5 text-center">
+      <div class="col-lg-7">
+        <!-- <span class="service-label-badge mb-3 d-inline-block">What We Offer</span> -->
+        <h2 class="fw-bold text-dark fs-1 mb-3">Our Services</h2>
+        <p class="text-muted fs-6 lh-lg">
+          From brand-new printer sales to flexible rentals, expert repairs and exclusive memberships —
+          we have everything you need to keep your printing seamless.
+        </p>
+      </div>
+    </div>
+
+    <!-- Service Cards -->
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 justify-content-center">
+      <!-- Sell Printer -->
+      <div class="col" (click)="handleServiceClick(categories[0])">
+        <div class="service-feature-card h-100 p-4 text-center cursor-pointer">
+          <div class="service-icon-circle icon-blue mx-auto mb-4">
+            <i class="bi bi-printer fs-3"></i>
+          </div>
+          <h5 class="fw-bold text-dark mb-2">Sell Printer</h5>
+          <p class="text-muted fs-7 mb-3 lh-base">
+            Browse our wide range of brand-new and certified printers for home and office use.
+          </p>
+          <span class="service-cta-link text-blue fw-semibold fs-7">
+            View All Printers <i class="bi bi-arrow-right ms-1"></i>
+          </span>
+        </div>
+      </div>
+
+      <!-- Rent Printer -->
+      <div class="col" (click)="handleServiceClick(categories[1])">
+        <div class="service-feature-card h-100 p-4 text-center cursor-pointer">
+          <div class="service-icon-circle icon-green mx-auto mb-4">
+            <i class="bi bi-calendar-event fs-3"></i>
+          </div>
+          <h5 class="fw-bold text-dark mb-2">Rent Printer</h5>
+          <p class="text-muted fs-7 mb-3 lh-base">
+            Flexible short or long-term printer rentals for events, projects, and temporary setups.
+          </p>
+          <span class="service-cta-link text-green fw-semibold fs-7">
+            Explore Rentals <i class="bi bi-arrow-right ms-1"></i>
+          </span>
+        </div>
+      </div>
+
+      <!-- Repair Printer -->
+      <div class="col" (click)="handleServiceClick(categories[2])">
+        <div class="service-feature-card h-100 p-4 text-center cursor-pointer">
+          <div class="service-icon-circle icon-orange mx-auto mb-4">
+            <i class="bi bi-tools fs-3"></i>
+          </div>
+          <h5 class="fw-bold text-dark mb-2">Repair Printer</h5>
+          <p class="text-muted fs-7 mb-3 lh-base">
+            Certified technicians diagnose and fix all printer brands with genuine parts and warranty.
+          </p>
+          <span class="service-cta-link text-orange fw-semibold fs-7">
+            Book Repair <i class="bi bi-arrow-right ms-1"></i>
+          </span>
+        </div>
+      </div>
+
+      <!-- Membership -->
+      <div class="col" (click)="handleServiceClick(categories[3])">
+        <div class="service-feature-card membership-highlight h-100 p-4 text-center cursor-pointer">
+          <div class="service-icon-circle icon-purple mx-auto mb-4">
+            <i class="bi bi-gem fs-3"></i>
+          </div>
+          <h5 class="fw-bold text-dark mb-2">Membership</h5>
+          <p class="text-muted fs-7 mb-3 lh-base">
+            Unlock exclusive annual plans with priority support, discounts, and preventive maintenance.
+          </p>
+          <span class="service-cta-link text-purple fw-semibold fs-7">
+            View Plans <i class="bi bi-arrow-right ms-1"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Membership Modal Popup -->
+<div *ngIf="showMembershipModal" class="membership-modal-backdrop" (click)="closeMembershipModal()">
+  <div class="membership-modal-content" (click)="$event.stopPropagation()">
+    <!-- Modal Header -->
+    <div class="modal-header-custom d-flex justify-content-between align-items-center p-4 border-bottom">
+      <div>
+        <h3 class="fw-bold text-dark mb-1">EnergyPrinter Memberships</h3>
+        <p class="text-muted fs-7 mb-0">Select your preferred coverage and enjoy exclusive benefits</p>
+      </div>
+      <button class="btn-close-custom" (click)="closeMembershipModal()" aria-label="Close modal">
+        <i class="bi bi-x-lg text-secondary fs-5"></i>
+      </button>
+    </div>
+
+    <!-- Modal Body -->
+    <div class="modal-body-custom p-4">
+      <div class="row row-cols-1 row-cols-md-2 g-3">
+        <div class="col" *ngFor="let card of memberships">
+          <div class="card membership-plan-card h-100 p-3 border rounded-3 transition-all d-flex flex-column">
+            <div class="d-flex align-items-center gap-3 mb-2">
+              <div
+                class="membership-icon-wrapper bg-primary-light text-primary rounded-circle d-flex align-items-center justify-content-center">
+                <i class="bi" [ngClass]="card.icon"></i>
+              </div>
+              <div>
+                <h6 class="fw-bold text-dark mb-0">{{ card.duration }}</h6>
+                <span class="badge bg-light text-secondary border fs-8 mt-1">{{ card.tier }}</span>
+              </div>
+            </div>
+
+            <hr class="my-2 border-light-subtle">
+
+            <ul class="list-unstyled flex-grow-1 mb-0 py-2">
+              <li class="d-flex align-items-start gap-2 mb-2 fs-8 text-secondary" *ngFor="let feat of card.features">
+                <i class="bi bi-check2 text-success mt-0.5"></i>
+                <span>{{ feat }}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Footer -->
+    <div class="modal-footer-custom p-4 border-top bg-light d-flex flex-column align-items-center gap-3">
+      <button class="btn btn-primary-custom px-5 py-3 fw-bold fs-6 shadow-sm" (click)="contactMoreDetails()">
+        Contact for More Details
+      </button>
+
+      <!-- Contact details display with nice transition -->
+      <div *ngIf="showContactDetails"
+        class="contact-details-box p-3 rounded border text-center shadow-sm w-100 text-dark bg-white">
+        <h6 class="fw-bold mb-2 text-primary d-flex align-items-center justify-content-center gap-1">
+          <i class="bi bi-telephone-outbound"></i> Get in Touch With Us
+        </h6>
+        <div class="row g-2 fs-7 text-secondary">
+          <div class="col-sm-6">
+            <strong class="text-dark">Hotline:</strong> +1 (555) 019-2834
+          </div>
+          <div class="col-sm-6">
+            <strong class="text-dark">Email:</strong> membership&#64;energyprinter.com
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

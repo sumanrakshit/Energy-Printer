@@ -17,6 +17,9 @@
           <a class="nav-link text-dark fw-medium" routerLink="/" routerLinkActive="text-primary-color" [routerLinkActiveOptions]="{exact: true}" (click)="navigateTo('/')">Home</a>
         </li>
         <li class="nav-item px-3">
+          <a class="nav-link text-dark fw-medium cursor-pointer" (click)="scrollToSection('our-service-section')">Our Services</a>
+        </li>
+        <li class="nav-item px-3">
           <a class="nav-link text-dark fw-medium" routerLinkActive="text-primary-color" (click)="navigateTo('/all-printers')" style="cursor:pointer;">All Printers</a>
         </li>
         <li class="nav-item px-3">
@@ -32,28 +35,6 @@
 
       <!-- Right Menu Actions -->
       <div class="navbar-actions d-flex align-items-center gap-3">
-        <!-- Wishlist Icon -->
-        <a class="position-relative cart-icon-wrapper" href="javascript:void(0)" aria-label="Wishlist">
-          <i class="bi bi-heart fs-4 text-secondary"></i>
-          <span
-            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger border border-light custom-cart-badge"
-            [class.d-none]="wishlistCount === 0"
-          >
-            {{ wishlistCount }}
-          </span>
-        </a>
-
-        <!-- Cart Icon -->
-        <a class="position-relative cart-icon-wrapper" href="javascript:void(0)" aria-label="Shopping Cart">
-          <i class="bi bi-cart3 fs-4 text-secondary"></i>
-          <span
-            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger border border-light custom-cart-badge"
-            [class.d-none]="cartCount === 0"
-          >
-            {{ cartCount }}
-          </span>
-        </a>
-
         <!-- Sign In Button -->
         <button class="btn btn-outline-primary-custom px-4" type="button" (click)="navigateTo('/auth/login')">Sign In</button>
 

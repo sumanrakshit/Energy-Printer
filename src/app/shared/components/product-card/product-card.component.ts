@@ -1,9 +1,6 @@
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Printer } from '../../interfaces/printer.interface';
-import { CartService } from '../../../core/services/cart.service';
-import { WishlistService } from '../../../core/services/wishlist.service';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-product-card',
@@ -12,63 +9,22 @@ import { Subscription } from 'rxjs';
   templateUrl: './product-card.component.html',
   styleUrl: './product-card.component.scss'
 })
-export class ProductCardComponent implements OnInit, OnDestroy {
+export class ProductCardComponent {
   @Input() product!: Printer;
 
-  quantity = 0;
-  isInWishlist = false;
-  private cartSubscription!: Subscription;
-  private wishlistSubscription!: Subscription;
+  openPdf(): void {
+    const pdfMap: { [key: string]: string } = {
+      'canon-ts8320-new': '/specs/canon-pixma-ts8320.pdf',
+      'canon-ts8320-pop': '/specs/canon-pixma-ts8320.pdf',
+      'epson-et4760-new': '/specs/epson-ecotank-et-4760.pdf',
+      'hp-9015e-new': '/specs/hp-officejet-pro-9015e.pdf',
+      'brother-l2350-pop': '/specs/brother-hl-l2350dw.pdf',
+      'hp-m404n-pop': '/specs/hp-laserjet-pro-m404n.pdf',
+      'epson-xp7100-ref': '/specs/epson-expression-xp-7100.pdf',
+      'hp-m15w-ref': '/specs/hp-laserjet-pro-m15w.pdf'
+    };
 
-  constructor(
-    private cartService: CartService,
-    private wishlistService: WishlistService
-  ) {}
-
-  ngOnInit(): void {
-    this.cartSubscription = this.cartService.getCartItems().subscribe(items => {
-      const item = items.find(i => i.product.id === this.product.id);
-      this.quantity = item ? item.quantity : 0;
-    });
-
-    this.wishlistSubscription = this.wishlistService.getWishlistItems().subscribe(items => {
-      this.isInWishlist = items.some(i => i.id === this.product.id);
-    });
-  }
-
-  ngOnDestroy(): void {
-    if (this.cartSubscription) {
-      this.cartSubscription.unsubscribe();
-    }
-    if (this.wishlistSubscription) {
-      this.wishlistSubscription.unsubscribe();
-    }
-  }
-
-  toggleWishlist(): void {
-    this.wishlistService.toggleWishlist(this.product);
-  }
-
-  incrementQuantity(): void {
-    this.cartService.addToCart(this.product);
-  }
-
-  decrementQuantity(): void {
-    this.cartService.decrementQuantity(this.product.id);
-  }
-
-  getStarsArray(rating: number): number[] {
-    const stars = [];
-    const floor = Math.floor(rating);
-    for (let i = 0; i < floor; i++) {
-      stars.push(1);
-    }
-    if (rating % 1 !== 0) {
-      stars.push(0.5);
-    }
-    while (stars.length < 5) {
-      stars.push(0);
-    }
-    return stars;
+    const pdfUrl = pdfMap[this.product.id] || '/specs/generic-printer-spec.pdf';
+    window.open(pdfUrl, '_blank');
   }
 }

@@ -54,8 +54,8 @@
 
       <!-- RIGHT: Booking Form -->
       <div class="col-lg-5">
+        <h4 class="fw-bold text-dark mb-4">Book Service Appointment</h4>
         <div class="card card-custom p-4 p-md-5 border-light shadow">
-          <h4 class="fw-bold text-dark mb-4">Book Service Appointment</h4>
 
           <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
             
@@ -132,7 +132,7 @@
                 [class.is-invalid]="bookingForm.get('serviceType')?.touched && bookingForm.get('serviceType')?.invalid"
               >
                 <option value="" disabled>Select a service type</option>
-                <option *ngFor="let s of services" [value]="s.name">{{ s.name }} (${{ s.price }})</option>
+                <option *ngFor="let s of services" [value]="s.name">{{ s.name }}</option>
               </select>
               <div class="invalid-feedback">Please select a service package.</div>
             </div>
@@ -188,7 +188,7 @@
 
             <!-- Book button -->
             <button type="submit" class="btn btn-primary-custom w-100 py-3 fw-bold fs-6">
-              Book Service Appointment
+              Contact Us
             </button>
           </form>
         </div>
